@@ -14,10 +14,16 @@
         ['name' => "Lara", 'job' => 'Designer'],
       ];
 
-      for($i = 0; $i < count($pessoas); $i++){
-        echo $pessoas[$i];
-      }
+      //
+      // for($i = 0; $i < count($pessoas); $i++){
+      //   print_r($pessoas[$i]);
+      // }
 
+      foreach ($pessoas as $value) {
+        // code...
+        echo print_r($value);
+      }
+      echo "<br/>";
       for($i = 0; $i <= 10; ++$i){
         echo $i . "<br/>";
       }
@@ -45,8 +51,24 @@
                 }
             echo "</tr>";
         }
+
+        $vetor_idades  = [  25, 		15, 	46, 	78,		];
+		    $vetor_pessoas = [ "NÃ­cholas", "Pedro", "JoÃ£o", "Greg", ];
+
+        $menor_ind = 0;
+        for ($i=1; $i < count($vetor_idades); $i++) {
+          if ($vetor_idades[$menor_ind] < $vetor_idades[$i]) {
+            // code..
+            $menor_ind = $i;
+          }
+        }
+
+        echo $vetor_pessoas[$menor_ind] . " tem a maior idade " . $vetor_idades[$menor_ind];
+
     ?>
-    
+
+
+
     </table>
   </body>
 
