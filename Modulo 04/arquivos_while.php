@@ -20,6 +20,12 @@
         echo "Nome: " . $data[0] . " Idade: " . $data[1] . " Profissão: " . $data[2] . "<br />";
       }
 
+      //Estrutura do doWhile
+      $i = 0;
+      do{
+        echo "Condição falsa sendo executada pelo menos uma vez";
+      }While($i != 0);
+
     ?>
   </body>
 
