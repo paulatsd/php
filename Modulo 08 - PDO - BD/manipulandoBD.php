@@ -30,18 +30,22 @@
 
     //Prepara a consulta e associa a variável $email ao placehold :email -> o valor da variável vai na consulta
 		$stmt  = $conn->prepare("SELECT * FROM Users WHERE Email = :email ");
-		$stmt->BindValue(':email', $email);
+		$stmt->BindValue(':email', $email); //Liga o valor ao placehold
 
-		if ( $stmt->execute() ) {
+		if ( $stmt->execute() ) { //Executa a consulta
 			$result = $stmt->fetchAll(PDO::FETCH_OBJ);
 
 			var_dump($result);
 		}
 
-		$insert = $conn->prepare("INSERT INTO Users (Nome,Biografia, Login, Senha, Email)
+		//Prepara o o comando SQL
+		$insert = $conn->prepare("INSERT INTO Users (Nome, Biografia, Login, Senha, Email)
 								  VALUES (:nome, :biografia, :login, :senha, :email) ");
+
+		//Dando um BindValue direto no comando execute - Ligando os valores aos placeholds
 		$insert->execute(
-			array(	':nome' => 'Jonh2',
+			array(
+					':nome' => 'Jonh2',
 					':biografia' => 'Longa biografia',
 			 		':login' => 'jonh',
 			 		':senha' => sha1('1231'),
@@ -52,8 +56,8 @@
 		$id = 3;
 		$biografia = 'Minha longa biografia';
 		$update = $conn->prepare("UPDATE Users SET Biografia = :biografia WHERE idUsers = :idUsers ");
-		$update->BindValue(':biografia', $biografia, PDO::PARAM_STR);
-		$update->BindValue(':idUsers', $id, PDO::PARAM_INT);
+		$update->BindValue(':biografia', $biografia, PDO::PARAM_STR); //No terceiro parametro está sendo passado o tipo do valor - String
+		$update->BindValue(':idUsers', $id, PDO::PARAM_INT); //Tipo valor: Inteiro
 
 		if ( $update->execute() ) {
 			echo 'Alterado com sucesso' . '<br />';
