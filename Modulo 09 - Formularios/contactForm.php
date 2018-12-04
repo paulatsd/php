@@ -3,17 +3,18 @@
 <head>
 	<title>Módulo 9 - 1 - Criando Formulários</title>
 	<meta charset="utf-8"/>
-	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-	<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> <!-- adicionando a biblioteca jQuery diretamente do próprio servidor do jQuery-->
+	<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script> <!-- utilizando o plugin jQuery validation -->
 
+  <!--Criando a validação do lado do cliente utilizando o plugin jQuery validation -->
 	<script>
-		$(document).ready(function() {
+		$(document).ready(function() { //Executar o código somente qnd o DOM for executado (pag executada)
 			$("#contactform").validate({
 				rules : {
-					'user_name'  :  "required",
+					'user_name'  :  "required", //campo obrigatorio
 					'user_email' : {
-						required : true,
-						email : true
+						required : true,  //obrigatorio
+						email : true      //
 					},
 					'msg_subject' : "required",
 					'msg_content' : {
@@ -58,7 +59,7 @@
 		</table>
 	</form>
 
-  
+
 	<h2>Registros Salvos</h2>
 	<?php
 		include('conn.php');
